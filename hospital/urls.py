@@ -6,7 +6,6 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('',views.home_view,name=''),
     path('bookapp_pat/',views.bookapp_view,name='bookapp.html'),
-    path('bookvaccine_pat/',views.covidvaccine_pat_view,name='covidvaccine.html'),
     path('calladoc_pat/',views.calladoc_view,name='calladoc.html'),
     path('feedback_pat/',views.feedback_view,name='feedback.html'),
     path('medicalreport_pat/',views.medicalreport_view,name='medicalreport.html'),
@@ -74,7 +73,6 @@ urlpatterns = [
     path('report_apt/<int:pk>',views.report_apt_view,name='report_apt.html'),
     path('opcost',views.opcost_adm_view,name='opcost.html'),
     path('med_track/<str:name>',views.track_med_view,name='particular_medtrack.html'), 
-    path('covidvaccine',views.covid_vaccine_adm_view,name='covid_vaccine_adm.html'), 
     path('downloadreport/<int:pk>',views.render_pdf_report_view,name="downloadreport"),
     path('downloadbill/<int:pk>',views.render_pdf_bill_view,name="downloadbill"), 
     path('downloadreport_apt/<int:pk>',views.render_pdf_report_apt_view,name="downloadreport_apt"),
