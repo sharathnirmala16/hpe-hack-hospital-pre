@@ -461,9 +461,8 @@ def profile_adm_view(request):
 #         #         Paitent Related Views         #            #
 #===============================================================
 
-
 def check_avail(doc,dt,tm):     #check if doctor is available in a given slot
-    tm = tm[:-3]    #separate AM/PM
+    #tm = tm[:-3]    #separate AM/PM
     hr = tm[:-3]    #get hour reading
     mn = tm[-2:]    #get minute reading
     ftm = time(int(hr),int(mn),0)   #create a time object

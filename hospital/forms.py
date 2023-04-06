@@ -221,8 +221,8 @@ class PatientAppointmentForm(forms.ModelForm):      #used to register an appoint
     def __init__(self, *args, **kwargs):
         super(PatientAppointmentForm, self).__init__(*args, **kwargs)
         self.fields['doctor'].choices = [(c.id, c.firstname+"("+c.department+")") for c in Doctor.objects.filter(status=True).all()]#list of doctors to choose from, taken fresh from database
-        self.fields['calltime'].choices = [('9:00 AM','9:00 AM'),('9:15 AM','9:15 AM'),('9:30 AM','9:30 AM'),('9:45 AM','9:45 AM'),('10:00 AM','10:00 AM'),('10:15 AM','10:15 AM'),('10:30 AM','10:30 AM'),('10:45 AM','10:45 AM'),('11:00 AM','11:00 AM'),('11:15 AM','11:15 AM'),('11:30 AM','11:30 AM'),('11:45 AM','11:45 AM'),('12:00 PM','12:00 PM'),('12:P5 PM','12:15 PM'),('12:30 PM','12:30 PM'),('12:45 PM','12:45 PM'),
-                                            ('14:00 PM','14:00 PM'),('14:15 PM','14:15 PM'),('14:30 PM','14:30 PM'),('14:45 PM','14:45 PM'),('15:00 PM','15:00 PM'),('15:15 PM','15:15 PM'),('15:30 PM','15:30 PM'),('15:45 PM','15:45 PM'),('16:00 PM','16:00 PM'),('16:15 PM','16:15 PM'),('16:30 PM','16:30 PM'),('16:45 PM','16:45 PM'),('17:00 PM','17:00 PM')]
+        self.fields['calltime'].choices = [('9:00','9:00'),('9:15','9:15'),('9:30','9:30'),('9:45','9:45'),('10:00','10:00'),('10:15','10:15'),('10:30','10:30'),('10:45','10:45'),('11:00','11:00'),('11:15','11:15'),('11:30','11:30'),('11:45','11:45'),('12:00','12:00'),('12:P5','12:15'),('12:30','12:30'),('12:45','12:45'),
+                                            ('14:00','14:00'),('14:15','14:15'),('14:30','14:30'),('14:45','14:45'),('15:00','15:00'),('15:15','15:15'),('15:30','15:30'),('15:45','15:45'),('16:00','16:00'),('16:15','16:15'),('16:30','16:30'),('16:45','16:45'),('17:00','17:00')]
                                             #choices for time slot for appointment
     class Meta:
         model=Appointment
@@ -244,8 +244,8 @@ class AdminAppointmentForm(forms.ModelForm):     #used to register an appointmen
         super(AdminAppointmentForm, self).__init__(*args, **kwargs)
         self.fields['doctor'].choices = [(c.id, c.firstname+"("+c.department+")") for c in Doctor.objects.filter(status=True).all()]#list of doctors to choose from, taken fresh from database
         self.fields['patient'].choices = [(c.id, c.firstname) for c in Patient.objects.filter(status=True).all()]#list of patients to choose from, taken fresh from database
-        self.fields['calltime'].choices = [('9:00 AM','9:00 AM'),('9:15 AM','9:15 AM'),('9:30 AM','9:30 AM'),('9:45 AM','9:45 AM'),('10:00 AM','10:00 AM'),('10:15 AM','10:15 AM'),('10:30 AM','10:30 AM'),('10:45 AM','10:45 AM'),('11:00 AM','11:00 AM'),('11:15 AM','11:15 AM'),('11:30 AM','11:30 AM'),('11:45 AM','11:45 AM'),('12:00 PM','12:00 PM'),('12:P5 PM','12:15 PM'),('12:30 PM','12:30 PM'),('12:45 PM','12:45 PM'),
-                                            ('14:00 PM','14:00 PM'),('14:15 PM','14:15 PM'),('14:30 PM','14:30 PM'),('14:45 PM','14:45 PM'),('15:00 PM','15:00 PM'),('15:15 PM','15:15 PM'),('15:30 PM','15:30 PM'),('15:45 PM','15:45 PM'),('16:00 PM','16:00 PM'),('16:15 PM','16:15 PM'),('16:30 PM','16:30 PM'),('16:45 PM','16:45 PM'),('17:00 PM','17:00 PM')]
+        self.fields['calltime'].choices = [('9:00','9:00'),('9:15','9:15'),('9:30','9:30'),('9:45','9:45'),('10:00','10:00'),('10:15','10:15'),('10:30','10:30'),('10:45','10:45'),('11:00','11:00'),('11:15','11:15'),('11:30','11:30'),('11:45','11:45'),('12:00','12:00'),('12:P5','12:15'),('12:30','12:30'),('12:45','12:45'),
+                                            ('14:00','14:00'),('14:15','14:15'),('14:30','14:30'),('14:45','14:45'),('15:00','15:00'),('15:15','15:15'),('15:30','15:30'),('15:45','15:45'),('16:00','16:00'),('16:15','16:15'),('16:30','16:30'),('16:45','16:45'),('17:00','17:00')]
                                             #choices for time slot for appointment
     
     class Meta:
