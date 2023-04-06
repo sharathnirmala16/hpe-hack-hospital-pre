@@ -156,20 +156,18 @@
   </div>
     <div class="main-panel">
       <br><br>
-      <h1 style="color: #28acea">Admit Bills and Reports</h1>
       <br>
       <div class="container" style="margin-bottom: 200px;">
         <div class="left">
-          <h2 style="color: #28acea">Bills</h2><br>
+          
           <ul class="options">
             {% for i in padm %}
               <li><a class="btn btn-primary btn-round btn-lg"href="{% url 'bill.html' i.1 %}" target="_blank"><b>{{ i.0 }}</b></a></li><br><br>
             {% endfor %}
           </ul>
         </div>
-        <div class="right">
+        <div class="center">
           <br><br><br><br>
-          <h2 style="color: #28acea">Reports</h2><br>
           <ul class="options">
             {% for i in padm %}
               <li><a class="btn btn-primary btn-round btn-lg"href="{% url 'report.html' i.1 %}" target="_blank"><b>{{ i.0 }}</b></a></li><br><br>
@@ -177,17 +175,9 @@
           </ul>
         </div>
     </div>
-    <h1 style="color: #28acea">Appointment Bills and Reports</h1>
+    <h1 style="color: #28acea">Appointment Reports</h1>
     <div class="container" style="margin-bottom: 200px;">
-      <div class="left">
-        <h2 style="color: #28acea">Bills</h2><br>
-        <ul class="options">
-          {% for i in papt %}
-            <li><a class="btn btn-primary btn-round btn-lg"href="{% url 'bill_apt.html' i.1 %}" target="_blank"><b>{{ i.0 }}</b></a></li><br><br>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="right">
+      <div class="center">
         <br><br><br><br>
         <h2 style="color: #28acea">Reports</h2><br>
         <ul class="options">

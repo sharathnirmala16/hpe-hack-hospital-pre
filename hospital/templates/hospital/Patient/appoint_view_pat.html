@@ -304,9 +304,11 @@ td {
                                         <th class="sps">Description </th>
                                          <th class="sps">Call Date</th>
                                          <th class="sps">Call Time</th>
+                                         
                                          <th class="sps">Room Name</th>
+                                         <th class="sps">Remaining Time</th>
                                          <th class="sps">Details</th>
-
+                                         
                                     </tr>
 
                                     {% for p in app %}
@@ -317,6 +319,7 @@ td {
                                         <td class="sps">{{p.4}}</td>
                                         <td class="sps">{{p.5}}</td>
                                         <td class="sps">{{p.3}}</td>
+                                        <th class="sps">{{p.7}}</th>
                                         <td><a class="btn btn-primary btn-xs" href="{% url 'bookapp_details_particular_pat.html' p.6  %}">Details</a></td>
                                     </tr>
 

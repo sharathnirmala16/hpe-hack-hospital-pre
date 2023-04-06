@@ -301,33 +301,38 @@ td {
                             <h2>Review Appointments</h2>
                             <br>
                             <table class="sps">
-                                <thead>
-                                    <tr class="sps">
-                                        <th class="sps">Patient Name </th>
-                                        <th class="sps">Description </th>
-                                        <th class="sps">Appointment Date</th>
-                                        <th class="sps">Appointmen Time</th>
-                                        <th class="sps">Room Name</th>
-                                        <th class="sps">Save Details</th>
-                                        <th class="sps">Details</th>
-                                    </tr>
-                                    {% for p in app %}
-                                    <tr>
-                                        <td class="sps">{{ p.0 }}</td>
-                                        <td class="sps">{{ p.1 }}</td>
-                                        <td class="sps">{{ p.2 }}</td>
-                    
-                                        <td class="sps">{{p.4}}</td>
-                                        <td class="sps"><input type="text" id="link_{{ p.3 }}" name="link"></td>
-                                        <td><a class="btn btn-primary btn-xs" onclick="f_{{p.3}}()">Save</a></td>
-                                        <td><a class="btn btn-primary btn-xs" href="{% url 'bookapp_details_particular_doc.html' p.3  %}">Details</a></td>
-                                        
-                                  
-                                        
-                                    </tr>
-                                    {% endfor %}
+                              <thead>
+                                  <tr class="sps">
+                                      <th class="sps">Patient Name </th>
+                                      <th class="sps">Description </th>
+                                      <th class="sps">Appointment Date</th>
+                                      <th class="sps">Appointmen Time</th>
+                                      <th class="sps">Room Name</th>
+                                      <th class="sps">Save Details</th>
+                                      <th class="sps">Details</th>
+                                  </tr>
+                                  {% for p in app %}
+<tr>
+  <td class="sps">{{ p.0 }}</td>
+  <td class="sps">{{ p.1 }}</td>
+  <td class="sps">{{ p.2 }}</td>
+<td class="sps">{{ p.3|date:'F d, Y' }} {{ p.4 }}</td>
+  <td class="sps"><input type="text" id="link_{{ p.3 }}" name="link"></td>
+  <td><a class="btn btn-primary btn-xs" onclick="f_{{p.3}}()">Save</a></td>
+  <td><a class="btn btn-primary btn-xs" href="{% url 'bookapp_details_particular_doc.html' p.3  %}">Details</a></td>
+  <td class="sps remaining-time"></td>
+</tr>
+{% endfor %}
 
-                            </table>
+<script>
+  var appointmentTimes = document.querySelectorAll('.sps td:nth-child(4)');
+  var remainingTimes = document.querySelectorAll('.remaining-time');
+  appointmentTimes.forEach(function (appointmentTime, index) {
+var remainingTime = moment(appointmentTime.innerText, 'MMMM DD, YYYY h:mm a', 'en-US').fromNow();
+      remainingTimes[index].innerText = remainingTime;
+  });
+</script>
+                          </table>
                             <p>*NOTE: Password for the room you create shoud be your firstname</p>
                             <p>Only approved appointments are displayed here.</p>
                             <br>

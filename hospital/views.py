@@ -11,6 +11,7 @@ from django.contrib import auth
 from django.utils import timezone
 from datetime import date,timedelta,time
 from django.http import HttpResponseRedirect
+from datetime import datetime
 
 ## For Invoice Function
 from django.http import HttpResponse
@@ -539,7 +540,11 @@ def pat_appointment_view(request):
             d=c.doctor
             p=c.patient
             if d and p:
-                det.append([d.firstname,p.firstname,c.description,c.link,c.calldate,c.calltime,c.pk])
+                curdatetime = datetime.now()
+                aptdatetime = datetime.combine(c.calldate, c.calltime)
+                diff = aptdatetime - curdatetime
+                #diff = 0
+                det.append([d.firstname,p.firstname,c.description,c.link,c.calldate,c.calltime,c.pk, diff])
         return render(request,'hospital/Patient/appoint_view_pat.html',{'app':det})
     else:
         auth.logout(request)
